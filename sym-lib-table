@@ -1,0 +1,11 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "connector")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/connector.kicad_sym")(options "")(descr ""))
+  (lib (name "diode")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/diode.kicad_sym")(options "")(descr ""))
+  (lib (name "discrete_semiconductor")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/discrete_semiconductor.kicad_sym")(options "")(descr ""))
+  (lib (name "electromechanical")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/electromechanical.kicad_sym")(options "")(descr ""))
+  (lib (name "integrated_semiconductor")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/integrated_semiconductor.kicad_sym")(options "")(descr ""))
+  (lib (name "passive")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/passive.kicad_sym")(options "")(descr ""))
+  (lib (name "schematic")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/schematic.kicad_sym")(options "")(descr ""))
+  (lib (name "sensor")(type "KiCad")(uri "${KIPRJMOD}/kicad-library/symbols/sensor.kicad_sym")(options "")(descr ""))
+)
