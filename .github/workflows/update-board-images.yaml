@@ -1,0 +1,55 @@
+name: Update board images
+env:
+  PCB_FILE: nimbus-pcdu.kicad_pcb
+  IMAGE_WIDTH: 2000
+  IMAGE_HEIGHT: 2000
+on:
+  push:
+    paths:
+      - "$PCB_FILE"
+  pull_request:
+    paths:
+      - "$PCB_FILE"
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install font
+        run: |
+          sudo apt install fonts-open-sans
+
+      - name: Install KiCad
+        run: |
+          sudo add-apt-repository ppa:kicad/kicad-9.0-releases
+          sudo apt update
+          sudo apt install kicad -y --no-install-recommends
+
+      - name: Generate images
+        run: |
+          kicad-cli pcb render "$PCB_FILE" \
+          --output isometric_top.png \
+          --quality high \
+          --width 2000 \
+          --height 2000 \
+          --zoom 0.9 \
+          --rotate 315,0,45
+          kicad-cli pcb render "$PCB_FILE" \
+          --output isometric_bottom.png \
+          --quality high \
+          --width 2000 \
+          --height 2000 \
+          --zoom 0.9 \
+          --rotate 315,180,135
+
+      - name: Commit results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add isometric_top.png isometric_bottom.png
+          git commit -m "Update board images"
+          git push
