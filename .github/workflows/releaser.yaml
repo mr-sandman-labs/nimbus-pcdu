@@ -48,7 +48,7 @@ jobs:
           --include-border-title \
           --sketch-pads-on-fab-layers \
           --layers F.Fab,B.Fab,F.Cu,In1.Cu,In2.Cu,B.Cu,F.Mask,B.Mask \
-          --common-layers Edge.Cuts
+          --common-layers Edge.Cuts,User.Drawings
 
           mv "$OUTPUT_DIR/$(basename "$PCB_FILE" .kicad_pcb).pdf" "$OUTPUT_DIR/pcb.pdf"
 
